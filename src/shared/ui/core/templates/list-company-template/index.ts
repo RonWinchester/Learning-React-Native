@@ -1,0 +1,1 @@
+export { ListCompanyTemplate } from './ListCompanyTemplate';

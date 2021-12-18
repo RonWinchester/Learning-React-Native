@@ -1,3 +1,3 @@
-import { App } from './src/app/ui';
+import { App } from './src/app/app';
 
 export default App;

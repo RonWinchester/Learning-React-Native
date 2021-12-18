@@ -1,0 +1,1 @@
+export { PaymentsPageTemplates } from './PaymentsPageTemplates'

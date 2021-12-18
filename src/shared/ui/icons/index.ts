@@ -1,1 +1,1 @@
-export { IconStar } from './icon-star';
+export { ProfileIcon, PaymentIcon, MainIcon, AtmsIcon, GoBackIcon } from './icon';

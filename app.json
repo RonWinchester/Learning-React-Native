@@ -26,6 +26,11 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "sdkVersion": "43.0.0"
+    "sdkVersion": "43.0.0",
+    "platforms": [
+      "ios",
+     "android",
+     "web"
+     ]
   }
 }
