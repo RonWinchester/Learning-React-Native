@@ -18,12 +18,8 @@ export const PaymentPage: React.FC<any> = ({ route }) => {
   const onDeleteHandler = useCallback(
     alert => { 
       alert
-        ? Alert.alert('Предупреждение', 'Успех!', [{ text: 'ОК' }])
-        : Alert.alert(
-            'Предупреждение',
-            'Неверно введены данные. Введите полный номер телефона. Сумма не должна быть меньше 1 и больше 20000',
-            [{ text: 'ОК' }],
-          )
+        ? addPopup({text: 'Успешно!', time:5000, backgroundColor:'#6C78E6'})
+        : addPopup({text: 'Неверно введены данные. Введите полный номер телефона. Сумма не должна быть меньше 1 и больше 20000', time:5000})
     },
     [validation],
   );

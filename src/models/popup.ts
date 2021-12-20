@@ -1,8 +1,9 @@
-import { createStore, createEvent, createEffect } from 'effector';
+import { createStore, createEvent } from 'effector';
 
 type PopupStore = {
   text: string;
-  time?: number
+  time?: number;
+  backgroundColor?: string
 };
 
 

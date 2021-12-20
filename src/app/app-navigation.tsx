@@ -37,7 +37,7 @@ export const AppNavigation = () => {
       <Stack.Screen name="ListCompany" component={ListCompany}/>
       <Stack.Screen name="PaymentPage" component={PaymentPage}/>
     </Stack.Navigator>
-    {state && <Popup text={store.text} time={store.time} />}
+    {state && <Popup text={store.text} time={store.time} backgroundColor={store.backgroundColor} />}
     </>
   );
 };

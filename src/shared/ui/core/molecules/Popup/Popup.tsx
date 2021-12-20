@@ -4,9 +4,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
-  backgroundcolor: #fb6176;
   width: 90%;
-  height: 69px;
   position: absolute;
   border-radius: 13px;
   top: 27px;
@@ -22,18 +20,21 @@ const TextPopup = styled.Text`
   font-size: 15px;
   line-height: 20px;
   color: #ffffff;
+  height: 100%;
 `;
 
 const CloseButton = styled.TouchableOpacity`
-  align-self: flex-end;
+  align-self: center;
 `;
 
 type TPopup = {
   text: string;
   time?: number;
+  backgroundColor?:string;
 };
 
-export const Popup: React.FC<TPopup> = ({ text, time }) => {
+
+export const Popup: React.FC<TPopup> = ({ text, time, backgroundColor }) => {
   time &&
     React.useEffect(() => {
       const timer = setTimeout(() => closePopup(), time);
@@ -42,14 +43,13 @@ export const Popup: React.FC<TPopup> = ({ text, time }) => {
 
   console.log($popup.getState().text);
   return (
-    <Container>
+    <Container style={{backgroundColor:backgroundColor || '#fb6176'}}>
       <TextPopup>{text}</TextPopup>
       <CloseButton
         onPress={() => {
           closePopup();
         }}
-      >
-        <CloseIcon color="white" />
+      ><CloseIcon color="white"/>
       </CloseButton>
     </Container>
   );
