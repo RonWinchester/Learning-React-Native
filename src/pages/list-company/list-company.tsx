@@ -2,6 +2,7 @@ import React from 'react';
 import { ElementList } from '@shared/ui/core/organisms/element-list';
 import { CompanyListHeader } from '@shared/ui/core/organisms/CompanyListHeader/CompanyListHeader';
 import { ListCompanyTemplate } from '@shared/ui/core/templates/list-company-template';
+import { addPopup } from '../../models/popup';
 
 export type TElement = {
   service_icon: string;

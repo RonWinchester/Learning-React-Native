@@ -4,19 +4,31 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Payments } from '@pages/payments';
 import { ProfileIcon, PaymentIcon, MainIcon, AtmsIcon } from '@shared/ui/icons';
 import React from 'react';
-
-import { Context } from '@shared/store/store';
 import { ListCompany } from '@pages/list-company';
 import { PaymentPage } from '@pages/payment-page';
+import { Popup } from '@shared/ui/core/molecules/Popup/Popup';
+import { addPopup, $popup, closePopup } from '../models/popup';
 
 const Stack = createNativeStackNavigator();
 const Tabs = createBottomTabNavigator();
 
 export const AppNavigation = () => {
 
-  const data = React.useContext(Context);
+
+  const store = $popup.getState();
+
+  const [state, setState] = React.useState(false)
+
+  addPopup.watch(()=>{
+    setState(true)
+  })
+
+  closePopup.watch(()=>{
+    setState(false)
+  })
 
   return (
+    <>
     <Stack.Navigator 
       initialRouteName={'HomeScreen'}
       screenOptions={{ headerShown: false, headerStyle: {backgroundColor:'#312C39'}} }
@@ -25,6 +37,8 @@ export const AppNavigation = () => {
       <Stack.Screen name="ListCompany" component={ListCompany}/>
       <Stack.Screen name="PaymentPage" component={PaymentPage}/>
     </Stack.Navigator>
+    {state && <Popup text={store.text} time={store.time} />}
+    </>
   );
 };
 
