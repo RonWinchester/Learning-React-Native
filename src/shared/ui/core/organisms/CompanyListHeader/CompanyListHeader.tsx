@@ -5,7 +5,6 @@ import { SearchBarHeader } from '../../molecules/SearchBarHeader';
 
 type TCompanyListHeader = {
   text: string;
-  searchValue: (prop: string)=>void
 };
 
 const Container = styled.View`
@@ -15,11 +14,11 @@ alignItems: center;
 padding: 0 15px 16px;
 `;
 
-export const CompanyListHeader: React.FC<TCompanyListHeader> = ({ text, searchValue }) => {
+export const CompanyListHeader: React.FC<TCompanyListHeader> = ({ text }) => {
   return (
     <Container>
       <SearchBarHeader text={text} />
-      <SearchBar placeholder="Поиск" searchValue={searchValue}/>
+      <SearchBar placeholder="Поиск"/>
     </Container>
   );
 };

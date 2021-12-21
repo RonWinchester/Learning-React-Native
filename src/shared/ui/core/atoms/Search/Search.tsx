@@ -1,9 +1,9 @@
+import { serachQuery } from '../../../../../models/searchQuery';
 import React from 'react';
 import styled from 'styled-components/native';
 
 export type TSearchBar = {
     placeholder: string;
-    searchValue: (prop: string)=>void;
   };
 
 const SearchInput = styled.TextInput`
@@ -19,12 +19,12 @@ const SearchInput = styled.TextInput`
   font-size: 15px;
 `;
 
-export const Search: React.FC<TSearchBar> = ({ placeholder, searchValue }) => {
+export const Search: React.FC<TSearchBar> = ({ placeholder }) => {
     const [value, setValue] = React.useState('');
 
     function handleQuery (e: string) {
       setValue(e);
-      searchValue(e);
+      serachQuery(e)
     }
     return (
         <SearchInput

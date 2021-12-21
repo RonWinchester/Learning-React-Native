@@ -2,7 +2,7 @@ import React from 'react';
 import { ElementList } from '@shared/ui/core/organisms/element-list';
 import { CompanyListHeader } from '@shared/ui/core/organisms/CompanyListHeader/CompanyListHeader';
 import { ListCompanyTemplate } from '@shared/ui/core/templates/list-company-template';
-import { addPopup } from '../../models/popup';
+import { $query, serachQuery } from '../../models/searchQuery';
 
 export type TElement = {
   service_icon: string;
@@ -26,16 +26,19 @@ export const ListCompany: React.FC = ({ route }: any) => {
     return result;
   }
 
+  serachQuery.watch((payload) => {
+    setValue(payload)
+  })
   React.useEffect(() => {
     setArr(handleFilter(route.params.services, value));
   }, [value]);
+
 
   return (
     <ListCompanyTemplate
       header={
         <CompanyListHeader
           text={route.params.category_name}
-          searchValue={e => setValue(e)}
         />
       }
       elementList={

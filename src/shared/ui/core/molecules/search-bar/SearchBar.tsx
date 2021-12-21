@@ -11,11 +11,11 @@ width: 24px;
 height: 24px;
 `
 
-export const SearchBar: React.FC<TSearchBar> = ({ placeholder, searchValue }) => {
+export const SearchBar: React.FC<TSearchBar> = ({ placeholder }) => {
   return (
     <>
       <SearchIcon source={require('../../../../../assets/icons/search.png')} />
-      <Search placeholder={placeholder} searchValue={searchValue}/>
+      <Search placeholder={placeholder}/>
     </>
   );
 };
