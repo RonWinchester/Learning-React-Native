@@ -1,7 +1,6 @@
 import { PaymentsPageTemplates } from '@shared/ui/core/templates/payments-page-templates';
 import { addPopup } from '../../models/popup';
 import React, { useCallback } from 'react';
-import { Alert } from 'react-native';
 
 export const PaymentPage: React.FC<any> = ({ route }) => {
   const [number, setNumber] = React.useState('');
